@@ -3,58 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
 
-public interface Cutie {
-  // All cuties need to have a description of what makes them cute.
-  public String description();
-
-  // All cuties get a cuteness rating out of ten.
-  public Integer cutenessRating();
-}
-
-class Hamster implements Cutie{
-  public String description(){
-    return "A small black and white hamster with tiny eyes and teeth";
-  }
-  public Integer cutenessRating(){
-    return 6;
-  }
-}
-
-class Starfish implements Cutie{
-  public String description(){
-    return "A pink starfish with green and purple shorts";
-  }
-  public Integer cutenessRating(){
-    return 8;
-  }
-}
-
-class Fawn implements Cutie{
-  public String description(){
-    return "A  little deer with a while tail";
-  }
-  public Integer cutenessRating(){
-    return 9;
-  }
-}
-
-class Hyena implements Cutie{
-  public String description(){
-    return "A cackling hyena eating a zebra";
-  }
-  public Integer cutenessRating(){
-    return -1;
-  }
-}
-
-class Blobfish implements Cutie{
-  public String description(){
-    return "A kind blobfish";
-  }
-  public Integer cutenessRating(){
-    return 11;
-  }
-}
 
 public class Main {
   public static ArrayList<Cutie> enqueue_from = new ArrayList<>();
@@ -76,7 +24,7 @@ public class Main {
 
     while(running)
     {
-      System.out.println("Please enter 'enqueue' to add a new element at the front of the queue.\nPlease enter 'dequeue' to remove an element from the front of the queue. \nPlease enter 'size' to get the size of the queue. \nPlease enter 'exit' to exit the program.");
+      System.out.println("Please enter 'enqueue' to add a new element at the front of the queue.\nPlease enter 'dequeue' to remove an element from the front of the queue. \nPlease enter 'size' to get the size of the queue. \nPlease enter 'exit' to exit the program.\nPlease enter 'clear' to clear contents of queue. ");
       String entry = in.next();
       switch (entry)
       {
@@ -100,6 +48,9 @@ public class Main {
           break;
         case "exit":
           running =false;
+          break;
+        case "clear":
+          clear();
           break;
         default:
           System.out.println("Please enter a valid option");
@@ -125,6 +76,12 @@ public class Main {
   public static void size()
   {
      System.out.println(queue.size());
+  }
+
+  public static void clear()
+  {
+    queue.clear();
+    System.out.println("Queue has been cleared.");
   }
 
 }
